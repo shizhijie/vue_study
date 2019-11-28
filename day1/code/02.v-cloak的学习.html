@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <p v-cloak>++++++++++++{{msg}}----------------</p>
+        <h4 v-text="msg">=========================</h4>
+        <div>{{msg2}}</div>
+        <div v-text="msg2"></div>
+        <dvi v-html="msg2"></dvi>
+        <!-- <input type="button" value="按钮" v-bind:title="mytitle+'123'"> -->
+        <!-- <input type="button" value="按钮2" :title="mytitle+'123'" id="btn"> -->
+        <!-- <input type="button" value="按钮2" :title="mytitle+'123'" v-on:click="alert('hello vue')"> -->
+        <input type="button" value="按钮2" :title="mytitle+'123'" v-on:click="show">
+        <input type="button" value="按钮3" :title="mytitle+'123'" v-on:mouseover="alert('hello mouseover')">
+        <input type="button" value="按钮4" :title="mytitle+'123'" @mouseover="alert('hello mouseover 缩写@')">
+    </div>
+    
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'123',
+                msg2:'<h1>哈哈,我是一个大大的h1，我大，我骄傲</h1>',
+                mytitle:'这是一个自己定义的title'
+            },
+            methods:{
+                show:function(){
+                    alert("hello show")
+                }
+            }
+        })
+        // document.getElementById("btn").onclick= function(){
+        //     alert("hello")
+        // }
+    </script>
+</body>
+</html>
+
+<!-- 1.如何定义一个基本的vue代码结构 -->
+<!-- 2.插值表达式 和 v-text -->
+<!-- 3.v-cloak -->
+<!-- 4.v-html -->
+<!-- 5.v-bind Vue提供的属性绑定机制 缩写是 : -->
+<!-- 6.v-on   Vue提供的事件绑定机制 缩写是 @ -->
